@@ -66,7 +66,7 @@ struct UF2_Block {
 
 ### Flags
 
-Currently, there are three flags defined:
+Currently, there are five flags defined:
 
 * `0x00000001` - **not main flash** - this block should be skipped when writing the
   device flash; it can be used to store "comments" in the file, typically
@@ -128,8 +128,15 @@ This procedure was unfortunately not used for the SAMD51 and NRF52840 below.
 * ST STM32WLxx - 0x21460ff0
 * Microchip (Atmel) ATmega32 - 0x16573617
 * Cypress FX2 - 0x5a18069b
+* ESP8266 - 0x7eab61ed
 * ESP32 - 0x1c5f21b0
+* ESP32-S2 - 0xbfdd4eee
+* ESP32-C3 - 0xd42ba06c
+* ESP32-S3 - 0xc47e5767 
 * NXP i.MX RT10XX - 0x4fb2d5bd
+* NXP LPC55xx - 0x2abc77ec
+* GD32F350 - 0x31d228c6
+* Raspberry Pi RP2040 - 0xe48bff56
 
 ### Rationale
 
@@ -323,7 +330,7 @@ named `ACME Toaster mk3` (line breaks added for clarity):
 
 ```
 09 bc c7 9f 30 2e 31 2e 32 00 00 00
-14 9d 9d 65 41 43 4d 45 20 54 6f 61 73 74 65 72 20 6d 6b 33
+14 9d 0d 65 41 43 4d 45 20 54 6f 61 73 74 65 72 20 6d 6b 33
 00 00 00 00
 ```
 
@@ -340,6 +347,8 @@ Extension tags can, but don't have to, be repeated in all blocks.
 * [Nordic NRF52840](https://github.com/adafruit/Adafruit_nRF52840_Bootloader)
 * [Linux (RPi Zero)](https://github.com/microsoft/uf2-linux)
 * [Cypress FX2](https://github.com/whitequark/libfx2/tree/master/firmware/boot-uf2)
+* [Tiny UF2](https://github.com/adafruit/tinyuf2) - Support ESP32-S2, iMXRT10xx, STM32F4
+* [RP2040 chip](https://www.raspberrypi.org/products/raspberry-pi-pico/) - native support in silicon
 
 There's an ongoing effort to implement UF2 in [Codal](https://github.com/lancaster-university/codal-core).
 
@@ -349,6 +358,10 @@ There's an ongoing effort to implement UF2 in [Codal](https://github.com/lancast
 * https://makecode.adafruit.com
 * https://makecode.seeedstudio.com
 * https://maker.makecode.com
+
+### Libraries
+
+* https://www.npmjs.com/package/uf2
 
 ## License
 
